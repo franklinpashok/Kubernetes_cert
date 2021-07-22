@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: postgres
+  labels:
+    type: backend
+    tier: db-tier
+spec:
+  containers:
+   - name: postgres
+     image: postgres
+     resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+     env:
+     - name: POSTGRES_PASSWORD
+       value: mysecretpassword

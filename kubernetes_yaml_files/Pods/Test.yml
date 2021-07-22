@@ -1,0 +1,9 @@
+banana:
+  color: yellow
+  calories: 10
+  type: fruit
+carrot:
+  color: orange
+  calories: 2
+  type: vegtable
+apiVersion:
