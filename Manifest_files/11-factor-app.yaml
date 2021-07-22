@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    app: web
+  name: 11-factor-app
+  namespace: production
+spec:
+  containers:
+  - image: busybox
+    name: 11-factor-app
+    args:
+    - /bin/sh
+    - -c
+    - >
+      i=0;
+      while true;
+      do
+       echo "$i: $(date)" >> /var/log/11-factor-app.log;
+       i=$((i+1));
+       sleep 5;
+      done
+    volumeMounts:
+    - mountPath: /var/log
+      name: log-volume
+    resources: {}
+  - image: busybox
+    name: sidecar
+    args: [/bin/sh, -c, 'tail -n+1 -f /var/log/11-factor-app.log']
+    volumeMounts:
+    - mountPath: /var/log
+      name: log-volume
+  volumes:
+  - name: log-volume
+    emptyDir: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

@@ -1,0 +1,4 @@
+NAME         STATUS                     ROLES                  AGE     VERSION
+kubemaster   Ready                      control-plane,master   21m     v1.21.0
+kubenode01   Ready                      <none>                 11m     v1.21.0
+kubenode02   Ready,SchedulingDisabled   <none>                 6m44s   v1.21.0

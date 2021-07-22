@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  app: blue
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: configmap-test

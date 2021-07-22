@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  APP_COLOR: BLUE
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: config_map

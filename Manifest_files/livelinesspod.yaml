@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: livelinesspod
+  name: livelinesspod
+  namespace: cloud9
+spec:
+  containers:
+  - image: k8s.gcr.io/liveness
+    name: livelinesspod
+    args:
+    - /server
+    livenessProbe:
+      httpGet:
+        path: /cloud-health
+        port: 8080
+        httpHeaders:
+        - name: Custom-Header
+          value: Awesome
+      initialDelaySeconds: 3
+      periodSeconds: 3

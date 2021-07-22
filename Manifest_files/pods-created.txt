@@ -1,0 +1,4 @@
+NAME   READY   STATUS    RESTARTS   AGE     IP          NODE         NOMINATED NODE   READINESS GATES
+pod1   1/1     Running   0          5m59s   10.40.0.0   kubenode01   <none>           <none>
+pod2   1/1     Running   0          5m55s   10.32.0.2   kubenode02   <none>           <none>
+pod3   1/1     Running   0          5m52s   10.32.0.3   kubenode02   <none>           <none>

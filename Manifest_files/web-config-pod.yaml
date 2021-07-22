@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: web-config-pod
+  name: web-config-pod
+spec:
+  containers:
+  - image: nginx
+    name: web-config-pod
+    env:
+    - name: WEB_PORT
+      valueFrom:
+       configMapKeyRef:
+         name: web-config
+         key: web_port
+    - name: EXTERNAL_URL
+      valueFrom:
+       configMapKeyRef:
+        name: web-config
+        key: external_url
+

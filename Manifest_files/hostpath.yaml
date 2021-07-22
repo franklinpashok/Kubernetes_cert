@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hostpath-nginx-pod
+spec:
+  containers:
+  - image: nginx:alpine
+    name: hostpath-nginx-container
+    command:
+    - sleep
+    - "10000"
+    volumeMounts:
+    - mountPath: /test-pd
+      name: hostpath-nginx-volume
+  volumes:
+  - name: hostpath-nginx-volume
+    hostPath:
+      # directory location on host
+      path: /home/vagrant/hostpathvolume
+      # this field is optional
+  nodeSelector:
+   hostpath: test
+  tolerations:
+  - key: "node-role.kubernetes.io/master"
+    operator: "Equal"
+    # value: "master"
+    effect: "NoSchedule"    
